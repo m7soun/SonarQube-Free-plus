@@ -22,9 +22,9 @@ BRANCH_KEY=$(echo "$LATEST_BRANCH" | tr '/' '-')
 
 # Check if the branch is a hotfix branch and append ::hotfix if true
 if [[ "$LATEST_BRANCH" == hotfix/* ]]; then
-    PROJECT_KEY="ngage::${BITBUCKET_REPO_SLUG}::${BRANCH_KEY}::hotfix"
+    PROJECT_KEY="${BITBUCKET_WORKSPACE}::${BITBUCKET_REPO_SLUG}::${BRANCH_KEY}::hotfix"
 else
-    PROJECT_KEY="ngage::${BITBUCKET_REPO_SLUG}::${BRANCH_KEY}"
+    PROJECT_KEY="${BITBUCKET_WORKSPACE}::${BITBUCKET_REPO_SLUG}::${BRANCH_KEY}"
 fi
 
 # Replace '\\' with '-' in the project key (if necessary)

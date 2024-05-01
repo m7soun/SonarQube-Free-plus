@@ -36,7 +36,7 @@ else
             chmod +x hotfix_sonar_analysis.sh
             ./hotfix_sonar_analysis.sh
             ;;
-        main)
+        master)
             echo "Running delete merged branch to master SonarQube analysis..."
             chmod +x delete_merged_branch_to_master_sonar_analysis.sh
             ./delete_merged_branch_to_master_sonar_analysis.sh
