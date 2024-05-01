@@ -18,7 +18,10 @@ PROJECT_KEY=$(echo "${BITBUCKET_WORKSPACE}::${BITBUCKET_REPO_SLUG}::${BRANCH_KEY
 
 echo "Fetching project information from SonarQube..."
 RESPONSE=$(curl -H "Authorization: Bearer $SONAR_USER_TOKEN" -H "Accept: application/json" -H "Content-Type: application/json" "$SONAR_HOST_URL/api/projects/search?projects=$PROJECT_KEY" || echo "Failed to fetch data from SonarQube")
+echo "$RESPONSE"  # Echo the response
 TOTAL=$(echo "$RESPONSE" | jq -r '.paging.total')
+
+echo "$TOTAL"  # Echo the total
 
 if [ $TOTAL -gt 0 ]; then
     echo "Project $PROJECT_KEY already exists in SonarQube. Skipping analysis."
